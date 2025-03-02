@@ -64,8 +64,8 @@ for(let i = 0; i<=6; i++){
 // random color
 document.getElementById("theme")
     .addEventListener('click', function(){
-        let r1 = parseInt(Math.random()*100);
-        let r2 = parseInt(Math.random()*10);
-        let r3 = parseInt(Math.random()*10);
-        document.body.style.backgroundColor = `rgb(5, ${r3}${r1}, ${r1}${r2})`;
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        document.body.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
     })
