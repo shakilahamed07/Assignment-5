@@ -8,8 +8,6 @@ document.getElementById('blog')
 window.addEventListener('load', function(){
     let date = Date();
     let newDate = date.split(" ")
-    for(let i = 0; i<4; i++){
-        }
     document.getElementById('date').innerHTML=`
     <p>${newDate[0]} ,</p>
     <p class="text-xl font-bold text-color">${newDate[1]} ${newDate[2]} ${newDate[3]} </p>
@@ -37,10 +35,12 @@ for(const taskBtn of taskButtons){
         const hours = now.getHours();
         const minutes = now.getMinutes();
         const seconds = now.getSeconds(); 
+        let hour = hours % 12 || 12;
+        const ampm = hours >= 12 ? 'PM' : 'AM';
 
         let div  = document.createElement('div');
         div.innerHTML = `
-        <p class="p-3 bg-secondary-color rounded-lg mb-3 j">You have Complete The Task ${title} at ${hours}:${minutes}:${seconds}</p>
+        <p class="p-3 bg-secondary-color rounded-lg mb-3 j">You have Complete The Task ${title} at ${hour}:${minutes}:${seconds} ${ampm}</p>
         `;
         historyContainer.append(div);
 
@@ -61,3 +61,11 @@ for(let i = 0; i<=6; i++){
     })
 }
 
+// random color
+document.getElementById("theme")
+    .addEventListener('click', function(){
+        let r1 = parseInt(Math.random()*100);
+        let r2 = parseInt(Math.random()*10);
+        let r3 = parseInt(Math.random()*10);
+        document.body.style.backgroundColor = `rgb(5, ${r3}${r1}, ${r1}${r2})`;
+    })
